@@ -1,16 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function HeroSection() {
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        // Parallax effect on scroll
+        const handleScroll = () => {
+            if (videoRef.current) {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.5;
+                videoRef.current.style.transform = `translate(-50%, -50%) translateY(${parallax}px)`;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <section className="relative h-screen w-full overflow-hidden bg-[#010a13]">
             {/* Video Background */}
             <div className="absolute inset-0 w-full h-full">
                 <video
+                    ref={videoRef}
                     autoPlay
                     muted
                     loop
                     playsInline
                     className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover opacity-60"
+                    style={{ transition: 'transform 0.1s ease-out' }}
                 >
                     <source src="https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/8ab3e227121c53aacab0c9b9f7a48adbc65db520.webm" type="video/webm" />
                 </video>
@@ -21,20 +39,20 @@ export default function HeroSection() {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto mt-16">
+            <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-16 max-w-[1300px] mx-auto">
 
                 {/* Logo Image */}
                 <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                     <img
                         src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/9eb028de391e65072d06e77f06d0955f66b9fa2c-736x316.png?auto=format&fit=fill&q=80&w=552"
                         alt="League of Legends Logo"
-                        className="w-[238px] md:w-[450px] lg:w-[552px] h-auto drop-shadow-2xl"
+                        className="w-[238px] md:w-[350px] lg:w-[450px] h-auto drop-shadow-2xl"
                     />
                 </div>
 
                 {/* Headline */}
                 <h1
-                    className="font-sans text-white text-[16px] font-bold uppercase tracking-wide mt-4 mb-8 max-w-3xl leading-tight animate-fade-in-up italic"
+                    className="font-sans text-white text-[16px] font-bold uppercase tracking-[0.1em] mb-8 max-w-[600px] leading-[1.4] animate-fade-in-up italic"
                     style={{
                         animationDelay: '0.4s',
                         textShadow: '0 2px 4px rgba(0,0,0,0.5)'
@@ -44,7 +62,7 @@ export default function HeroSection() {
                 </h1>
 
                 {/* CTA Button */}
-                <div className="relative inline-block group">
+                <div className="relative inline-block group animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                     {/* Outer Border Container */}
                     <div className="absolute -inset-[5px] border border-[#f0e6d2]/30 transition-all duration-300 group-hover:border-[#f0e6d2]/60"></div>
                     
@@ -53,7 +71,7 @@ export default function HeroSection() {
                         href="https://signup.leagueoflegends.com/es-mx/signup/redownload" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="relative block px-10 py-5 bg-[#c8aa6e] text-[#0a1428] font-spiegel text-[14px] font-bold uppercase tracking-widest hover:bg-[#d8ba7e] transition-all duration-300"
+                        className="relative block px-10 py-[20px] bg-[#c8aa6e] text-[#0a1428] font-spiegel text-[14px] font-bold uppercase tracking-[0.1em] hover:bg-[#d8ba7e] transition-all duration-300"
                     >
                         JUEGA GRATIS
                     </a>
@@ -61,8 +79,10 @@ export default function HeroSection() {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce">
-                <div className="w-[1px] h-8 bg-gradient-to-b from-[#c8aa6e] to-transparent"></div>
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce-slow">
+                <svg className="w-6 h-6 text-[#f0e6d2]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
             </div>
         </section>
     );

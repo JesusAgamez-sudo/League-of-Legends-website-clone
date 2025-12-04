@@ -73,15 +73,28 @@ body.riotbar-present {
         animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
+    .animate-bounce-slow {
+        animation: bounce 2s ease-in-out infinite;
+    }
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
         }
 
         to {
             opacity: 1;
             transform: translateY(0);
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(10px);
         }
     }
 }
