@@ -1,6 +1,9 @@
 import NavBar from './components/NavBar'
 import HeroSection from './components/HeroSection'
 import FeaturedNews from './components/FeaturedNews'
+import ChampionSelector from './components/ChampionSelector'
+import StyleSection from './components/StyleSection'
+import GameModesSection from './components/GameModesSection'
 
 function App() {
     return (
@@ -8,6 +11,9 @@ function App() {
             <NavBar />
             <HeroSection />
             <FeaturedNews />
+            <ChampionSelector />
+            <StyleSection />
+            <GameModesSection />
         </div>
     )
 }
