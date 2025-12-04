@@ -96,7 +96,7 @@ Este proyecto es una réplica educativa del sitio web de League of Legends. Todo
 
 ## 👤 Autor
 
-Tu Nombre - [@tu-usuario](https://github.com/tu-usuario)
+Tu Nombre - (https://github.com/JesusAgamez-sudo)
 
 ## 🙏 Agradecimientos
 
