@@ -24,16 +24,18 @@ Una réplica fiel del sitio web oficial de League of Legends construida con Reac
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/tu-usuario/scalar-meteorite.git
+git clone (https://github.com/JesusAgamez-sudo/League-of-Legends-website-clone)
 
-# Navegar al directorio
-cd scalar-meteorite
+# Navegar al directorio de la carpeta que se creo
+cd
 
 # Instalar dependencias
 npm install
 
 # Iniciar servidor de desarrollo
 npm run dev
+
+
 ```
 
 ## 🛠️ Scripts Disponibles
