@@ -2,9 +2,6 @@ import NavBar from './components/NavBar'
 import HeroSection from './components/HeroSection'
 import FeaturedNews from './components/FeaturedNews'
 import ChampionSelector from './components/ChampionSelector'
-import StyleSection from './components/StyleSection'
-import GameModesSection from './components/GameModesSection'
-import Footer from './components/Footer'
 
 function App() {
     return (
@@ -13,9 +10,6 @@ function App() {
             <HeroSection />
             <FeaturedNews />
             <ChampionSelector />
-            <StyleSection />
-            <GameModesSection />
-            <Footer />
         </div>
     )
 }
