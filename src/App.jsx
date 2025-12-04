@@ -4,6 +4,7 @@ import FeaturedNews from './components/FeaturedNews'
 import ChampionSelector from './components/ChampionSelector'
 import StyleSection from './components/StyleSection'
 import GameModesSection from './components/GameModesSection'
+import Footer from './components/Footer'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <ChampionSelector />
             <StyleSection />
             <GameModesSection />
+            <Footer />
         </div>
     )
 }
